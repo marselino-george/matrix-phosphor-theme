@@ -1,0 +1,67 @@
+{
+  "profiles": [
+    {
+      "updates": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+      "colorScheme": "Matrix Phosphor",
+      "font": {
+        "face": "Cascadia Mono",
+        "size": 14,
+        "weight": "semi-bold"
+      },
+      "cursorShape": "vintage",
+      "cursorHeight": 35,
+      "intenseTextStyle": "all",
+      "experimental.retroTerminalEffect": true,
+      "opacity": 100,
+      "useAcrylic": false,
+      "padding": "12, 10, 12, 10",
+      "tabColor": "#073B18",
+      "scrollbarState": "hidden",
+      "adjustIndistinguishableColors": "never"
+    },
+    {
+      "updates": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+      "colorScheme": "Matrix Phosphor",
+      "font": {
+        "face": "Cascadia Mono",
+        "size": 14,
+        "weight": "semi-bold"
+      },
+      "cursorShape": "vintage",
+      "cursorHeight": 35,
+      "intenseTextStyle": "all",
+      "experimental.retroTerminalEffect": true,
+      "opacity": 100,
+      "useAcrylic": false,
+      "padding": "12, 10, 12, 10",
+      "tabColor": "#073B18",
+      "scrollbarState": "hidden",
+      "adjustIndistinguishableColors": "never"
+    }
+  ],
+  "schemes": [
+    {
+      "name": "Matrix Phosphor",
+      "background": "#020B05",
+      "foreground": "#78F592",
+      "cursorColor": "#C2FFD0",
+      "selectionBackground": "#145A2B",
+      "black": "#020B05",
+      "brightBlack": "#356B44",
+      "red": "#38A958",
+      "brightRed": "#59D977",
+      "green": "#4AD66D",
+      "brightGreen": "#8BFFA4",
+      "yellow": "#6CCF7D",
+      "brightYellow": "#A7FFB8",
+      "blue": "#2F8F50",
+      "brightBlue": "#55CF78",
+      "purple": "#3A9D58",
+      "brightPurple": "#70E58C",
+      "cyan": "#48B96A",
+      "brightCyan": "#77F29A",
+      "white": "#68CC7A",
+      "brightWhite": "#C8FFD4"
+    }
+  ]
+}

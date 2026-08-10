@@ -1,0 +1,43 @@
+{
+  "name": "matrix-phosphor-theme",
+  "displayName": "Matrix Phosphor Theme",
+  "description": "A monochrome phosphor-green color theme inspired by classic Matrix-style terminals.",
+  "version": "0.1.0",
+  "publisher": "marselino-george",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marselino-george/matrix-phosphor-theme.git"
+  },
+  "homepage": "https://github.com/marselino-george/matrix-phosphor-theme#readme",
+  "bugs": {
+    "url": "https://github.com/marselino-george/matrix-phosphor-theme/issues"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "matrix",
+    "phosphor",
+    "green",
+    "terminal",
+    "retro",
+    "dark-theme"
+  ],
+  "galleryBanner": {
+    "color": "#020B05",
+    "theme": "dark"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Matrix Phosphor",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Matrix Phosphor.json"
+      }
+    ]
+  }
+}

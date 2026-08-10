@@ -1,0 +1,5 @@
+0.1.0 preview
+
+- Initial Matrix Phosphor theme for Visual Studio 2022 and Visual Studio 2026.
+- Shared monochrome green palette with the Windows Terminal and VS Code variants.
+- Theme resources only: no telemetry, commands, services, or executable extension code.
