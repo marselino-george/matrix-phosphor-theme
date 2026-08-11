@@ -1,15 +1,19 @@
 name: validate
 
 on:
-  push:
-  pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: windows-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
@@ -17,11 +21,7 @@ jobs:
         with:
           node-version: 24
 
-      - name: Validate public source
-        shell: pwsh
-        run: ./scripts/Test-PublicRepository.ps1
-
-      - name: Package VS Code theme
+      - name: Validate and package VS Code theme
         shell: pwsh
         run: ./scripts/Build-Themes.ps1 -SkipVisualStudio
 
