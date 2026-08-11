@@ -1,6 +1,8 @@
 # Matrix Phosphor Theme
 
-![Matrix Phosphor preview](assets/preview.svg)
+![Matrix Phosphor running in Visual Studio](assets/visual-studio-preview.png)
+
+*Actual Visual Studio 2026 screenshot using a synthetic, public-safe demo project.*
 
 A phosphor-green theme inspired by the terminal aesthetic of *The Matrix*. The original terminal palette is available for Windows Terminal/PowerShell, while the IDE variants use a black-first palette in Visual Studio Code, Visual Studio, and SQL Server Management Studio 22.
 
@@ -28,11 +30,11 @@ A phosphor-green theme inspired by the terminal aesthetic of *The Matrix*. The o
 
 The IDE variants are intentionally marked as previews while their language and tool-window coverage is evaluated in daily use.
 
-### Visual Studio preview
+### Palette illustration
 
-![Matrix Phosphor running in Visual Studio](assets/visual-studio-preview.png)
+![Matrix Phosphor palette illustration](assets/preview.svg)
 
-The screenshot uses a synthetic demo project created only for the preview; it contains no personal paths, account details, or proprietary source code.
+This SVG is a conceptual palette illustration, not a screenshot of any supported application. It shows the intended black-first surfaces and phosphor syntax hierarchy shared by the theme variants.
 
 ## Windows Terminal and PowerShell
 
