@@ -6,6 +6,7 @@
     <Description xml:space="preserve">A black-first phosphor-green theme with full workbench and syntax-token coverage for Visual Studio 2022, Visual Studio 2026, and SQL Server Management Studio 22.</Description>
     <License>LICENSE.txt</License>
     <ReleaseNotes>ReleaseNotes.txt</ReleaseNotes>
+    <Icon>matrix-phosphor-logo-128.png</Icon>
     <Tags>color-theme;dark-theme;matrix;phosphor;green;terminal;retro;visual-studio-theme;ssms</Tags>
   </Metadata>
   <Installation>
