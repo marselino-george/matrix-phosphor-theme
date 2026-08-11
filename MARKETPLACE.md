@@ -33,6 +33,22 @@ After installation, restart the target application and select **Tools > Theme > 
 
 Matrix Phosphor is an unofficial fan-made theme. It is not affiliated with or endorsed by Warner Bros., Village Roadshow Pictures, Microsoft, or the creators of *The Matrix*.
 
+## Marketplace media
+
+- Visual Studio screenshot: `assets/visual-studio-preview.png`
+- Suggested caption: **Matrix Phosphor in Visual Studio — black-first shell with electric-green, pale-green, and mint-white C# syntax**
+- The screenshot contains only a synthetic demo project and no personal or proprietary information.
+
+## Private publisher build
+
+The Marketplace requires the VSIX author to match the publisher display name exactly, including casing. Keep personal publisher details out of the public source manifest and apply them only to the ignored build artifact:
+
+```powershell
+.\scripts\Build-Themes.ps1 -VisualStudioPublisher '<exact Marketplace publisher display name>'
+```
+
+The script verifies the rewritten publisher inside `artifacts\MatrixPhosphorTheme.vsix` without printing or committing the supplied value.
+
 ## Suggested tags
 
 `color-theme;dark-theme;matrix;phosphor;green;terminal;retro;visual-studio-theme;ssms`

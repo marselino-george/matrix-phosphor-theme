@@ -28,6 +28,12 @@ A phosphor-green theme inspired by the terminal aesthetic of *The Matrix*. The o
 
 The IDE variants are intentionally marked as previews while their language and tool-window coverage is evaluated in daily use.
 
+### Visual Studio preview
+
+![Matrix Phosphor running in Visual Studio](assets/visual-studio-preview.png)
+
+The screenshot uses a synthetic demo project created only for the preview; it contains no personal paths, account details, or proprietary source code.
+
 ## Windows Terminal and PowerShell
 
 Run from PowerShell:
@@ -138,7 +144,7 @@ vscode/         VS Code declarative theme extension
 visual-studio/  Visual Studio and SSMS theme-only VSIX project
 notepadplusplus/ Notepad++ XML theme
 scripts/        Install, build, conversion, and public-safety checks
-assets/         Repository-safe generated preview artwork
+assets/         Repository-safe generated preview artwork and screenshots
 ```
 
 ## License

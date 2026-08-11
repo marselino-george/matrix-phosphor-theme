@@ -1,6 +1,8 @@
 [CmdletBinding()]
 param(
-    [switch]$SkipVisualStudio
+    [switch]$SkipVisualStudio,
+
+    [string]$VisualStudioPublisher
 )
 
 Set-StrictMode -Version Latest
@@ -10,6 +12,17 @@ $repositoryRoot = Split-Path -Parent $PSScriptRoot
 $artifactsRoot = Join-Path $repositoryRoot 'artifacts'
 $vsCodeRoot = Join-Path $repositoryRoot 'vscode'
 $vsCodePackage = Join-Path $artifactsRoot 'matrix-phosphor-theme-0.3.0.vsix'
+$marketplacePublisher = $null
+
+if ($PSBoundParameters.ContainsKey('VisualStudioPublisher')) {
+    $marketplacePublisher = $VisualStudioPublisher.Trim()
+    if ([string]::IsNullOrWhiteSpace($marketplacePublisher)) {
+        throw 'VisualStudioPublisher cannot be empty or whitespace.'
+    }
+    if ($marketplacePublisher.IndexOfAny([char[]]"`r`n`t") -ge 0) {
+        throw 'VisualStudioPublisher cannot contain control characters.'
+    }
+}
 
 & (Join-Path $PSScriptRoot 'Test-PublicRepository.ps1')
 New-Item -ItemType Directory -Path $artifactsRoot -Force | Out-Null
@@ -43,6 +56,51 @@ if (-not $SkipVisualStudio) {
     Copy-Item -LiteralPath $builtVsix -Destination $visualStudioPackage -Force
 
     Add-Type -AssemblyName System.IO.Compression.FileSystem
+    if ($marketplacePublisher) {
+        $archive = [System.IO.Compression.ZipFile]::Open(
+            $visualStudioPackage,
+            [System.IO.Compression.ZipArchiveMode]::Update
+        )
+        try {
+            $manifestEntry = $archive.GetEntry('extension.vsixmanifest')
+            if (-not $manifestEntry) {
+                throw 'The Visual Studio package does not contain extension.vsixmanifest.'
+            }
+
+            $reader = [System.IO.StreamReader]::new($manifestEntry.Open())
+            try {
+                [xml]$marketplaceManifest = $reader.ReadToEnd()
+            }
+            finally {
+                $reader.Dispose()
+            }
+
+            $marketplaceManifest.PackageManifest.Metadata.Identity.SetAttribute(
+                'Publisher',
+                $marketplacePublisher
+            )
+            $manifestEntry.Delete()
+
+            $manifestEntry = $archive.CreateEntry(
+                'extension.vsixmanifest',
+                [System.IO.Compression.CompressionLevel]::Optimal
+            )
+            $utf8WithoutBom = [System.Text.UTF8Encoding]::new($false)
+            $writer = [System.IO.StreamWriter]::new($manifestEntry.Open(), $utf8WithoutBom)
+            try {
+                $marketplaceManifest.Save($writer)
+            }
+            finally {
+                $writer.Dispose()
+            }
+        }
+        finally {
+            $archive.Dispose()
+        }
+
+        Write-Host 'Applied the private Marketplace publisher display name to the generated VSIX.' -ForegroundColor Green
+    }
+
     $archive = [System.IO.Compression.ZipFile]::OpenRead($visualStudioPackage)
     try {
         $manifestEntry = $archive.GetEntry('extension.vsixmanifest')
@@ -62,6 +120,17 @@ if (-not $SkipVisualStudio) {
         $sourceVersion = [string]$sourceManifest.PackageManifest.Metadata.Identity.Version
         if ($packagedVersion -ne $sourceVersion) {
             throw "Visual Studio package version mismatch: source $sourceVersion, package $packagedVersion."
+        }
+
+        $expectedPublisher = if ($marketplacePublisher) {
+            $marketplacePublisher
+        }
+        else {
+            [string]$sourceManifest.PackageManifest.Metadata.Identity.Publisher
+        }
+        $packagedPublisher = [string]$packagedManifest.PackageManifest.Metadata.Identity.Publisher
+        if ($packagedPublisher -cne $expectedPublisher) {
+            throw 'Visual Studio package publisher metadata does not match the requested publisher.'
         }
     }
     finally {
