@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="MatrixPhosphorTheme.c64eae78-78f4-4610-a144-533e0dc027c3" Version="0.1.0" Language="en-US" Publisher="marselino-george" />
+    <Identity Id="MatrixPhosphorTheme.c64eae78-78f4-4610-a144-533e0dc027c3" Version="0.3.1" Language="en-US" Publisher="marselino-george" />
     <DisplayName>Matrix Phosphor Theme</DisplayName>
-    <Description xml:space="preserve">A preview of a monochrome phosphor-green theme for Visual Studio 2022 and Visual Studio 2026.</Description>
+    <Description xml:space="preserve">A black-first phosphor-green theme with full workbench and syntax-token coverage for Visual Studio 2022, Visual Studio 2026, and SQL Server Management Studio 22.</Description>
     <License>LICENSE.txt</License>
     <ReleaseNotes>ReleaseNotes.txt</ReleaseNotes>
-    <Tags>color-theme;dark-theme;matrix;phosphor;green;terminal;retro;visual-studio-theme</Tags>
+    <Tags>color-theme;dark-theme;matrix;phosphor;green;terminal;retro;visual-studio-theme;ssms</Tags>
   </Metadata>
   <Installation>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,19.0)">
       <ProductArchitecture>amd64</ProductArchitecture>
     </InstallationTarget>
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,19.0)">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Ssms" Version="[17.14,)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Ssms" Version="[17.14,)">
       <ProductArchitecture>arm64</ProductArchitecture>
     </InstallationTarget>
   </Installation>

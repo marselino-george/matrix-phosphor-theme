@@ -1,8 +1,8 @@
 {
   "name": "matrix-phosphor-theme",
   "displayName": "Matrix Phosphor Theme",
-  "description": "A monochrome phosphor-green color theme inspired by classic Matrix-style terminals.",
-  "version": "0.1.0",
+  "description": "A black-first phosphor theme with dark, electric, pale-green, and mint-white syntax tones.",
+  "version": "0.3.0",
   "publisher": "marselino-george",
   "license": "MIT",
   "repository": {
@@ -28,7 +28,7 @@
     "dark-theme"
   ],
   "galleryBanner": {
-    "color": "#020B05",
+    "color": "#000000",
     "theme": "dark"
   },
   "contributes": {
