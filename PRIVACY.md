@@ -16,5 +16,6 @@ The installed themes make no network requests. Build tools may access their norm
 - The Windows Terminal uninstaller removes only that fragment.
 - The VS Code package contributes color definitions only and runs no extension-host code.
 - The Visual Studio package contains theme resources only and runs no extension code, commands, services, or tool windows.
+- The Notepad++ installer reads the installed `DarkModeDefault.xml` and writes one generated XML theme to the current user's Notepad++ themes directory.
 
 No personal settings files, shell profiles, source repositories, browser data, credentials, or documents are read by the installed themes.

@@ -1,5 +1,16 @@
-0.1.0 preview
+0.3.1 preview
 
-- Initial Matrix Phosphor theme for Visual Studio 2022 and Visual Studio 2026.
-- Shared monochrome green palette with the Windows Terminal and VS Code variants.
-- Theme resources only: no telemetry, commands, services, or executable extension code.
+- Added SQL Server Management Studio 22 as a supported VSIX target.
+- Added explicit Matrix colors for XML names, attributes, values, delimiters, text, comments, and processing instructions.
+- Added explicit SQL operator, string, system-function, and system-table colors for SSMS.
+- Removed project-based Visual Studio tab colorization from the recommended setup so document tabs use the Matrix palette.
+- Rebalanced both IDE palettes around black surfaces, neutral phosphor text, and selective electric-green accents.
+- Removed the cyan cast from Visual Studio parameters and modern semantic classifications.
+- Added explicit Visual Studio coverage for parameters, fields, events, extension methods, records, control keywords, and string escapes.
+- Improved VS Code markup, string, punctuation, Markdown, tab, sidebar, and general UI hierarchy.
+- Rebuilt from the complete working Midnight Purple 2077 pkgdef coverage model.
+- Added the missing Shell and ShellInternal categories used by the Visual Studio 2026 chrome.
+- Restored the missing UI items in existing Visual Studio categories.
+- Changed primary editor, chrome, panel, sidebar, tab, and integrated-terminal surfaces to black.
+- Added dark-green, electric-green, pale-green, and mint-white syntax tiers by token role.
+- Preserved a stable Visual Studio theme GUID across regeneration and upgrades.

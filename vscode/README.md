@@ -1,6 +1,6 @@
 # Matrix Phosphor Theme for VS Code
 
-A declarative, monochrome phosphor-green color theme. It contains no executable extension code, telemetry, or network access.
+A declarative, black-first phosphor-green color theme with full workbench and syntax-token coverage. It contains no executable extension code, telemetry, or network access.
 
 After installation, select **Preferences: Color Theme > Matrix Phosphor**.
 
