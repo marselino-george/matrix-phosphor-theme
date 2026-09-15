@@ -47,7 +47,7 @@ The Marketplace requires the VSIX author to match the publisher display name exa
 .\scripts\Build-Themes.ps1 -VisualStudioPublisher '<exact Marketplace publisher display name>'
 ```
 
-The script verifies the rewritten publisher inside `artifacts\MatrixPhosphorTheme.vsix` without printing or committing the supplied value.
+The script writes `artifacts\MatrixPhosphorTheme-Marketplace.vsix` and verifies the rewritten publisher without printing or committing the supplied value.
 
 ## Suggested tags
 
