@@ -69,7 +69,7 @@ Build the extension package:
 Install the generated package:
 
 ```powershell
-code --install-extension .\artifacts\matrix-phosphor-theme-0.3.1.vsix
+code --install-extension .\artifacts\matrix-phosphor-theme-0.3.2.vsix
 ```
 
 Then select **Preferences: Color Theme > Matrix Phosphor**.

@@ -2,7 +2,7 @@
   "name": "matrix-phosphor-theme",
   "displayName": "Matrix Phosphor for VS Code",
   "description": "A black-first phosphor theme with dark, electric, pale-green, and mint-white syntax tones.",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "publisher": "Marcelino-Jorge-Romero",
   "icon": "images/matrix-phosphor-logo-128.png",
   "license": "MIT",
