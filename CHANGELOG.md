@@ -1,8 +1,12 @@
 # Changelog
 
+## 0.3.2 - 2026-09-15
+
+- Added the Marketplace icon and preview image to the VS Code package.
+- Aligned the VS Code publisher metadata with the Marketplace publisher ID.
+
 ## 0.3.1 - 2026-09-15
 
-- Added the Marketplace icon, preview image, and publisher metadata to the VS Code package.
 - Added SQL Server Management Studio 22 as an explicit theme-only VSIX target.
 - Added dedicated XML classifications for project files and other XML editors in Visual Studio.
 - Added Matrix SQL operator, string, system-function, and system-table colors for SSMS.
