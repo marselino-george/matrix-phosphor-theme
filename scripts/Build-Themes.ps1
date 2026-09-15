@@ -11,7 +11,9 @@ $ErrorActionPreference = 'Stop'
 $repositoryRoot = Split-Path -Parent $PSScriptRoot
 $artifactsRoot = Join-Path $repositoryRoot 'artifacts'
 $vsCodeRoot = Join-Path $repositoryRoot 'vscode'
-$vsCodePackage = Join-Path $artifactsRoot 'matrix-phosphor-theme-0.3.0.vsix'
+$vsCodeManifest = Get-Content -LiteralPath (Join-Path $vsCodeRoot 'package.json') -Raw | ConvertFrom-Json
+$vsCodePackage = Join-Path $artifactsRoot ("{0}-{1}.vsix" -f $vsCodeManifest.name, $vsCodeManifest.version)
+$vsCodeBaseImagesUrl = 'https://raw.githubusercontent.com/marselino-george/matrix-phosphor-theme/main/vscode'
 $marketplacePublisher = $null
 
 if ($PSBoundParameters.ContainsKey('VisualStudioPublisher')) {
@@ -29,7 +31,7 @@ New-Item -ItemType Directory -Path $artifactsRoot -Force | Out-Null
 
 Push-Location $vsCodeRoot
 try {
-    & npx.cmd --yes '@vscode/vsce@3.9.2' package --out $vsCodePackage
+    & npx.cmd --yes '@vscode/vsce@3.9.2' package --baseImagesUrl $vsCodeBaseImagesUrl --out $vsCodePackage
     if ($LASTEXITCODE -ne 0) {
         throw "VS Code packaging failed with exit code $LASTEXITCODE."
     }
@@ -52,7 +54,13 @@ if (-not $SkipVisualStudio) {
         throw "Visual Studio package was not found: $builtVsix"
     }
 
-    $visualStudioPackage = Join-Path $artifactsRoot 'MatrixPhosphorTheme.vsix'
+    $visualStudioPackageName = if ($marketplacePublisher) {
+        'MatrixPhosphorTheme-Marketplace.vsix'
+    }
+    else {
+        'MatrixPhosphorTheme.vsix'
+    }
+    $visualStudioPackage = Join-Path $artifactsRoot $visualStudioPackageName
     Copy-Item -LiteralPath $builtVsix -Destination $visualStudioPackage -Force
 
     Add-Type -AssemblyName System.IO.Compression.FileSystem

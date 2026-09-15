@@ -58,7 +58,7 @@ To remove it:
 .\scripts\Uninstall-MatrixTheme.ps1
 ```
 
-## Visual Studio Code preview
+## Visual Studio Code
 
 Build the extension package:
 
@@ -69,7 +69,7 @@ Build the extension package:
 Install the generated package:
 
 ```powershell
-code --install-extension .\artifacts\matrix-phosphor-theme-0.3.0.vsix
+code --install-extension .\artifacts\matrix-phosphor-theme-0.3.1.vsix
 ```
 
 Then select **Preferences: Color Theme > Matrix Phosphor**.
